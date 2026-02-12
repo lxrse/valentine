@@ -27,6 +27,7 @@ img {
 
 h1 {
     color: #d1005c;
+    margin-bottom: 20px;
 }
 
 button {
@@ -55,12 +56,12 @@ button {
 </head>
 
 <body>
-
 <div class="container">
-    <img src="tenor.gif"
-     style="width:250px;margin-bottom:20px;">
-</div>
+    <!-- Für GitHub direkt muss raw.githubusercontent.com benutzt werden -->
+    <img src="https://raw.githubusercontent.com/<lxrse>/<valentine>/<main>/tenor.gif" alt="Valentine GIF">
+    
     <h1>Will you be my Valentine?</h1>
+    
     <button id="yes">YES ❤️</button>
     <button id="no">NO</button>
 </div>
@@ -86,7 +87,7 @@ noBtn.addEventListener("click", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-    document.body.innerHTML = "<h1 style='font-size:48px;color:#ff2d75;'>YAY ❤️</h1>";
+    document.body.innerHTML = "<h1 style='font-size:48px;color:#ff2d75;text-align:center;'>YAY ❤️</h1>";
 });
 
 function moveNoButton() {
@@ -99,10 +100,8 @@ function moveNoButton() {
     noBtn.style.top = y + "px";
 }
 </script>
-
 </body>
 </html>
-
 
 
 
