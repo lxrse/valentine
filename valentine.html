@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffe6f0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+img {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #d1005c;
+}
+
+button {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#yes {
+    background: #ff2d75;
+    color: white;
+}
+
+#no {
+    background: #cccccc;
+}
+
+.floating {
+    position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="https://i.imgur.com/6X12FZK.png">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO</button>
+</div>
+
+<script>
+let noClicks = 0;
+let yesScale = 1;
+
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("click", () => {
+    noClicks++;
+
+    yesScale += 0.3;
+    yesBtn.style.transform = `scale(${yesScale})`;
+
+    noBtn.style.transform = `scale(${1 - noClicks * 0.2})`;
+
+    if (noClicks >= 3) {
+        moveNoButton();
+    }
+});
+
+yesBtn.addEventListener("click", () => {
+    document.body.innerHTML = "<h1 style='font-size:48px;color:#ff2d75;'>YAY ❤️</h1>";
+});
+
+function moveNoButton() {
+    noBtn.classList.add("floating");
+
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
